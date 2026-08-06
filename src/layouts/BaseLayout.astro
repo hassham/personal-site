@@ -4,15 +4,33 @@ import '../styles/global.css';
 
 interface Props {
   title: string;
+  description?: string;
 }
 
-const { title } = Astro.props;
+const defaultDescription =
+  "Hasham Ahmad — Senior Software Engineer with 18+ years of experience, currently focused on AI-powered applications, LLM workflows, and intelligent automation.";
+
+const { title, description = defaultDescription } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalURL} />
     <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Hasham Ahmad" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
   </head>
   <body>
     <Nav />
