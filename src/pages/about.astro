@@ -1,23 +1,92 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const experience = [
+  {
+    role: 'Senior Software Engineer',
+    org: 'FUJIFILM Data Management Solutions',
+    location: 'Sydney, Australia',
+    period: 'May 2024 — Present',
+  },
+  {
+    role: 'Senior Developer',
+    org: 'Freedom Digital',
+    location: 'Sydney, Australia',
+    period: 'Sep 2023 — May 2024',
+  },
+  {
+    role: 'Team Lead, .NET',
+    org: 'Techlogix',
+    location: 'Karachi, Pakistan',
+    period: 'Mar 2019 — Sep 2023',
+  },
+  {
+    role: 'Technical Expert, Software Developer',
+    org: 'Dubai Exports',
+    location: 'Dubai, UAE',
+    period: 'Mar 2011 — Jan 2019',
+  },
+  {
+    role: 'Software Development Consultant',
+    org: 'Cypera Technologies FZ-LLC',
+    location: 'Sindh, Pakistan',
+    period: 'Oct 2011 — Jan 2019',
+  },
+];
+
+const education = [
+  {
+    school: 'University of Karachi',
+    program: 'BS, Computer Science',
+    period: '2005 — 2009',
+  },
+  {
+    school: 'Habib Public School',
+    program: 'High School, Computer Science',
+    period: '1997 — 2005',
+  },
+];
 ---
 <BaseLayout title="About — Hasham Ahmad">
   <h1>About</h1>
   <p>
     I'm a Senior Software Engineer with 18+ years of experience building
-    scalable backend systems. I currently work at FUJIFILM Data Management
-    Solutions in Sydney, Australia, with prior experience across Karachi and
-    Dubai.
+    scalable backend systems. These days I'm focused on building AI-powered
+    applications, LLM workflows, and intelligent automation — helping
+    businesses unlock the value of AI on top of solid software fundamentals.
   </p>
   <p>
-    My background is primarily in .NET and backend architecture, and I've
-    been picking up AWS and cloud infrastructure work along the way. More
-    recently I've been exploring AI tooling and prompt engineering as part of
-    how I build software.
+    My background spans full-stack development, cloud platforms, and DevOps,
+    with deep roots in .NET and solution architecture. I currently work at
+    FUJIFILM Data Management Solutions in Sydney, with prior experience across
+    Sydney, Karachi, and Dubai.
   </p>
+
+  <h2>Experience</h2>
+  <ul class="experience-list">
+    {experience.map((job) => (
+      <li>
+        <div class="role">{job.role}</div>
+        <div class="org">{job.org} &middot; {job.location}</div>
+        <div class="period">{job.period}</div>
+      </li>
+    ))}
+  </ul>
+
+  <h2>Education</h2>
+  <ul class="experience-list">
+    {education.map((school) => (
+      <li>
+        <div class="role">{school.school}</div>
+        <div class="org">{school.program}</div>
+        <div class="period">{school.period}</div>
+      </li>
+    ))}
+  </ul>
+
+  <h2>Skills</h2>
   <p>
-    Outside of core engineering, I've spent time in Scrum/agile delivery, and
-    I'm always working through something new — recent focuses have included
-    Jenkins pipelines and serverless (AWS Lambda) patterns.
+    Solution Architecture, Scrum, Stakeholder Management, .NET, AWS, Jenkins,
+    and — more recently — LLMs and Generative AI.
   </p>
 </BaseLayout>

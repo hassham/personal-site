@@ -152,3 +152,25 @@ footer.site-footer .container {
   font-weight: 600;
   text-decoration: none;
 }
+
+.experience-list {
+  list-style: none;
+  padding: 0;
+}
+
+.experience-list li {
+  margin-bottom: 1.25rem;
+}
+
+.experience-list .role {
+  font-weight: 600;
+}
+
+.experience-list .org {
+  color: var(--color-text);
+}
+
+.experience-list .period {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
