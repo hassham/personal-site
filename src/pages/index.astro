@@ -3,14 +3,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 <BaseLayout title="Hasham Ahmad">
   <h1>Hi, I'm Hasham Ahmad.</h1>
-  <p>
+  <p class="lede">
     Senior Software Engineer with 18+ years of experience — currently focused
     on building AI-powered applications, LLM workflows, and intelligent
     automation.
   </p>
-  <p>
-    <a href="/about">About me &rarr;</a> &middot;
-    <a href="/projects">Projects &rarr;</a> &middot;
-    <a href="/blog">Blog &rarr;</a>
-  </p>
+  <div class="button-row">
+    <a class="button button-primary" href="/about">About me &rarr;</a>
+    <a class="button button-secondary" href="/projects">Projects</a>
+    <a class="button button-secondary" href="/blog">Blog</a>
+  </div>
 </BaseLayout>

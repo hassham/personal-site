@@ -1,19 +1,25 @@
 :root {
-  --color-bg: #ffffff;
-  --color-text: #1a1a1a;
-  --color-muted: #666666;
-  --color-accent: #3454d1;
-  --color-border: #e5e5e5;
+  --color-bg: #fafaf9;
+  --color-bg-raised: #ffffff;
+  --color-text: #1c1917;
+  --color-muted: #78716c;
+  --color-border: #e7e5e4;
+  --color-accent: #0f766e;
+  --color-accent-contrast: #ffffff;
+  --color-accent-soft: #f0fdfa;
   color-scheme: light dark;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-bg: #14161a;
-    --color-text: #e8e8e8;
-    --color-muted: #9a9a9a;
-    --color-accent: #7c9bff;
-    --color-border: #2a2d33;
+    --color-bg: #1c1917;
+    --color-bg-raised: #24211f;
+    --color-text: #f5f5f4;
+    --color-muted: #a8a29e;
+    --color-border: #34302d;
+    --color-accent: #2dd4bf;
+    --color-accent-contrast: #0f1413;
+    --color-accent-soft: rgba(45, 212, 191, 0.12);
   }
 }
 
@@ -31,7 +37,31 @@ body {
   background: var(--color-bg);
   color: var(--color-text);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  line-height: 1.6;
+  font-size: 17px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 2.25rem;
+  margin: 0 0 0.75rem;
+}
+
+h2 {
+  font-size: 1.375rem;
+  margin: 2.75rem 0 1.25rem;
+}
+
+p {
+  margin: 0 0 1.25rem;
 }
 
 a {
@@ -39,41 +69,55 @@ a {
 }
 
 .container {
-  max-width: 680px;
+  max-width: 720px;
   margin: 0 auto;
-  padding: 0 1.25rem;
+  padding: 0 1.5rem;
 }
 
 nav.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
   border-bottom: 1px solid var(--color-border);
+  background: color-mix(in srgb, var(--color-bg) 88%, transparent);
+  backdrop-filter: blur(8px);
 }
 
 nav.site-nav .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
+  padding-top: 1.1rem;
+  padding-bottom: 1.1rem;
 }
 
 nav.site-nav a {
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--color-text);
 }
 
+nav.site-nav .links {
+  display: flex;
+  gap: 1.5rem;
+}
+
 nav.site-nav .links a {
-  margin-left: 1.25rem;
-  font-weight: 400;
+  font-weight: 500;
   color: var(--color-muted);
+  transition: color 0.15s ease;
 }
 
 nav.site-nav .links a:hover {
   color: var(--color-accent);
 }
 
+nav.site-nav .links a[aria-current='page'] {
+  color: var(--color-accent);
+}
+
 main {
-  padding: 2.5rem 0 4rem;
+  padding: 3.5rem 0 5rem;
 }
 
 footer.site-footer {
@@ -83,8 +127,53 @@ footer.site-footer {
 }
 
 footer.site-footer .container {
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.lede {
+  font-size: 1.125rem;
+  color: var(--color-muted);
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1.1rem;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.95rem;
+  border: 1px solid transparent;
+  transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+}
+
+.button-primary {
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
+}
+
+.button-secondary {
+  background: transparent;
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+
+.button-secondary:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
 }
 
 .post-list {
@@ -93,7 +182,13 @@ footer.site-footer .container {
 }
 
 .post-list li {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
+  padding-bottom: 1.75rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.post-list li:last-child {
+  border-bottom: none;
 }
 
 .post-list time {
@@ -103,54 +198,81 @@ footer.site-footer .container {
 
 .post-list a {
   display: block;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
+  font-weight: 700;
   text-decoration: none;
-  font-weight: 600;
+  color: var(--color-text);
+  margin-top: 0.15rem;
+}
+
+.post-list a:hover {
+  color: var(--color-accent);
 }
 
 .post-list p {
-  margin: 0.25rem 0 0;
+  margin: 0.35rem 0 0;
   color: var(--color-muted);
 }
 
 .project-list {
   list-style: none;
   padding: 0;
+  display: grid;
+  gap: 1rem;
 }
 
 .project-list li {
-  margin-bottom: 1.5rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid var(--color-border);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  background: var(--color-bg-raised);
+  transition: border-color 0.15s ease, transform 0.15s ease;
 }
 
-.project-list li:last-child {
-  border-bottom: none;
+.project-list li:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
 }
 
 .project-list a {
   font-size: 1.1rem;
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
+  color: var(--color-text);
+}
+
+.project-list li:hover a {
+  color: var(--color-accent);
 }
 
 .project-list p {
-  margin: 0.25rem 0 0;
+  margin: 0.4rem 0 0;
   color: var(--color-muted);
 }
 
 .contact-list {
   list-style: none;
   padding: 0;
-}
-
-.contact-list li {
-  margin-bottom: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
 }
 
 .contact-list a {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6rem 1.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
   font-weight: 600;
   text-decoration: none;
+  color: var(--color-text);
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.contact-list a:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
 }
 
 .experience-list {
@@ -159,11 +281,25 @@ footer.site-footer .container {
 }
 
 .experience-list li {
-  margin-bottom: 1.25rem;
+  position: relative;
+  padding-left: 1.25rem;
+  margin-bottom: 1.5rem;
+  border-left: 2px solid var(--color-border);
+}
+
+.experience-list li::before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: 0.4rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-accent);
 }
 
 .experience-list .role {
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .experience-list .org {
