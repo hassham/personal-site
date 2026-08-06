@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const projects = [
+  {
+    title: 'Project One',
+    description: 'A short placeholder description of this project — what it does and what you used to build it.',
+    link: '#',
+  },
+  {
+    title: 'Project Two',
+    description: 'A short placeholder description of this project — what it does and what you used to build it.',
+    link: '#',
+  },
+  {
+    title: 'Project Three',
+    description: 'A short placeholder description of this project — what it does and what you used to build it.',
+    link: '#',
+  },
+];
+---
+<BaseLayout title="Projects — Hasham Ahmad">
+  <h1>Projects</h1>
+  <ul class="project-list">
+    {projects.map((project) => (
+      <li>
+        <a href={project.link}>{project.title}</a>
+        <p>{project.description}</p>
+      </li>
+    ))}
+  </ul>
+</BaseLayout>

@@ -112,3 +112,43 @@ footer.site-footer .container {
   margin: 0.25rem 0 0;
   color: var(--color-muted);
 }
+
+.project-list {
+  list-style: none;
+  padding: 0;
+}
+
+.project-list li {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.project-list li:last-child {
+  border-bottom: none;
+}
+
+.project-list a {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.project-list p {
+  margin: 0.25rem 0 0;
+  color: var(--color-muted);
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-list li {
+  margin-bottom: 0.75rem;
+}
+
+.contact-list a {
+  font-weight: 600;
+  text-decoration: none;
+}
