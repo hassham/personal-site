@@ -1,0 +1,114 @@
+:root {
+  --color-bg: #ffffff;
+  --color-text: #1a1a1a;
+  --color-muted: #666666;
+  --color-accent: #3454d1;
+  --color-border: #e5e5e5;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #14161a;
+    --color-text: #e8e8e8;
+    --color-muted: #9a9a9a;
+    --color-accent: #7c9bff;
+    --color-border: #2a2d33;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--color-accent);
+}
+
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+nav.site-nav {
+  border-bottom: 1px solid var(--color-border);
+}
+
+nav.site-nav .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
+nav.site-nav a {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+nav.site-nav .links a {
+  margin-left: 1.25rem;
+  font-weight: 400;
+  color: var(--color-muted);
+}
+
+nav.site-nav .links a:hover {
+  color: var(--color-accent);
+}
+
+main {
+  padding: 2.5rem 0 4rem;
+}
+
+footer.site-footer {
+  border-top: 1px solid var(--color-border);
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+footer.site-footer .container {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
+.post-list {
+  list-style: none;
+  padding: 0;
+}
+
+.post-list li {
+  margin-bottom: 1.5rem;
+}
+
+.post-list time {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+.post-list a {
+  display: block;
+  font-size: 1.1rem;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.post-list p {
+  margin: 0.25rem 0 0;
+  color: var(--color-muted);
+}
