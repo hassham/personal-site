@@ -1,16 +1,58 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { projects } from '../data/projects';
+
+const latestPost = (await getCollection('blog')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+)[0];
+
+const facts = ['18+ years experience', 'Sydney, Australia', 'AI-powered applications'];
+const featuredProjects = projects.slice(0, 2);
 ---
 <BaseLayout title="Hasham Ahmad">
-  <h1>Hi, I'm Hasham Ahmad.</h1>
-  <p class="lede">
-    Senior Software Engineer with 18+ years of experience — currently focused
-    on building AI-powered applications, LLM workflows, and intelligent
-    automation.
-  </p>
-  <div class="button-row">
-    <a class="button button-primary" href="/about">About me &rarr;</a>
-    <a class="button button-secondary" href="/projects">Projects</a>
-    <a class="button button-secondary" href="/blog">Blog</a>
-  </div>
+  <section class="hero">
+    <h1>Hi, I'm Hasham Ahmad.</h1>
+    <p class="lede">
+      Senior Software Engineer with 18+ years of experience — currently focused
+      on building AI-powered applications, LLM workflows, and intelligent
+      automation.
+    </p>
+    <ul class="fact-strip">
+      {facts.map((fact) => <li>{fact}</li>)}
+    </ul>
+    <div class="button-row">
+      <a class="button button-primary" href="/about">About me &rarr;</a>
+      <a class="button button-secondary" href="/projects">Projects</a>
+      <a class="button button-secondary" href="/blog">Blog</a>
+    </div>
+  </section>
+
+  {latestPost && (
+    <section class="home-section">
+      <h2>Latest from the blog</h2>
+      <ul class="post-list">
+        <li>
+          <a href={`/blog/${latestPost.slug}`}>{latestPost.data.title}</a>
+          <time datetime={latestPost.data.date.toISOString()}>
+            {latestPost.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </time>
+          <p>{latestPost.data.description}</p>
+        </li>
+      </ul>
+    </section>
+  )}
+
+  <section class="home-section">
+    <h2>Selected work</h2>
+    <ul class="project-list">
+      {featuredProjects.map((project) => (
+        <li>
+          <a href={project.link}>{project.title}</a>
+          <p>{project.description}</p>
+        </li>
+      ))}
+    </ul>
+    <p><a href="/projects">See all projects &rarr;</a></p>
+  </section>
 </BaseLayout>
