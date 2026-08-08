@@ -14,3 +14,12 @@ Ideas for later — not scheduled, just parked here so they don't get lost.
       (who you are, key pages, links) instead of parsing rendered HTML. An
       emerging convention, not yet a universal standard — treat as a bet,
       not a guaranteed win.
+- [ ] **Case studies for real projects** — Expand the Broadcast Monitoring
+      System and TV Audience Measurement entries from one-line descriptions
+      into fuller write-ups (problem, approach, impact).
+- [ ] **Custom 404 page** — Replace Astro's bare default with something
+      branded, matching the site's design system.
+- [ ] **Manual dark/light toggle** — Currently the theme only follows system
+      preference (`prefers-color-scheme`); add a manual override switch.
+- [ ] **Blog tags + search** — Categorize and make posts findable once
+      there's more than one. Not urgent yet, but worth parking.
