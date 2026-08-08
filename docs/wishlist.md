@@ -23,3 +23,10 @@ Ideas for later — not scheduled, just parked here so they don't get lost.
       preference (`prefers-color-scheme`); add a manual override switch.
 - [ ] **Blog tags + search** — Categorize and make posts findable once
       there's more than one. Not urgent yet, but worth parking.
+- [ ] **Security headers** — Add a `vercel.json` headers config (CSP,
+      X-Frame-Options, etc.). Good practice generally, and a visibly sloppy
+      security posture is a bad look for a senior engineer's own site.
+- [ ] **"Built with" transparency footer** — A small footer line linking to
+      the GitHub repo ("this site is open source, view the code"). The repo's
+      already public; surfacing that intentionally is a cheap credibility
+      signal to technical visitors (and AI agents parsing the page).
