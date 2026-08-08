@@ -9,3 +9,8 @@ Ideas for later — not scheduled, just parked here so they don't get lost.
 - [ ] **RSS feed** — Add `src/pages/rss.xml.js` using `@astrojs/rss`,
       generated from the existing `blog` content collection. Lets people
       subscribe via feed reader instead of checking the site manually.
+- [ ] **llms.txt** — Add a `/llms.txt` file: a curated, plain-markdown
+      summary of the site written for AI agents/crawlers to fetch directly
+      (who you are, key pages, links) instead of parsing rendered HTML. An
+      emerging convention, not yet a universal standard — treat as a bet,
+      not a guaranteed win.
